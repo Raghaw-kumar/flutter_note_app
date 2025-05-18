@@ -28,9 +28,11 @@ class PinAuthScreen extends StatelessWidget {
                 if (pin.length == 4) {
                   await context.read<AuthProvider>().authenticate(pin);
                   if (context.read<AuthProvider>().isAuthenticated) {
-                    Navigator.of(context).pushReplacement(MaterialPageRoute(
-                      builder: (_) => NotesListScreen(),
-                    ));
+                    Navigator.of(context).pushReplacement(
+                      MaterialPageRoute(
+                        builder: (_) => NotesListScreen(),
+                      ),
+                    );
                   } else {
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(content: Text('Invalid PIN')),

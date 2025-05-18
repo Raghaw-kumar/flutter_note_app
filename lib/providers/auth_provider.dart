@@ -26,6 +26,11 @@ class AuthProvider with ChangeNotifier {
     }
   }
 
+  Future<bool> hasPin() async {
+    final storedPin = await secureStorageService.readPin();
+    return storedPin != null;
+  }
+
   Future<void> reset() async {
     await secureStorageService.resetPin();
     _isAuthenticated = false;

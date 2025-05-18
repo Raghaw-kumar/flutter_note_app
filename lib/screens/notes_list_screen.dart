@@ -32,9 +32,11 @@ class NotesListScreen extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
         onPressed: () {
-          Navigator.of(context).push(MaterialPageRoute(
-            builder: (_) => NoteDetailScreen(),
-          ));
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (_) => NoteDetailScreen(),
+            ),
+          );
         },
       ),
     );

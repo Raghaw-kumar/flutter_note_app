@@ -13,7 +13,11 @@ class NoteItem extends StatelessWidget {
       margin: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
       child: ListTile(
         title: Text(note.title),
-        subtitle: Text(note.content, maxLines: 2, overflow: TextOverflow.ellipsis),
+        subtitle: Text(
+          note.content,
+          maxLines: 2,
+          overflow: TextOverflow.ellipsis,
+        ),
         onTap: () {
           Navigator.of(context).push(
             MaterialPageRoute(

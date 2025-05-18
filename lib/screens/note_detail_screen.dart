@@ -1,21 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-// ignore: depend_on_referenced_packages
 import 'package:uuid/uuid.dart';
 import '../models/note.dart';
 import '../providers/notes_provider.dart';
 
 class NoteDetailScreen extends StatelessWidget {
-  final Note? note; // This is used for editing an existing note
+  final Note? note;
 
   NoteDetailScreen({this.note});
 
-  final TextEditingController _titleController = TextEditingController();
-  final TextEditingController _contentController = TextEditingController();
+  final _titleController = TextEditingController();
+  final _contentController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-    // Initialize the controllers with note data if editing
     if (note != null) {
       _titleController.text = note!.title;
       _contentController.text = note!.content;
