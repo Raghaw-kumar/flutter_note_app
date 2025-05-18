@@ -7,12 +7,12 @@ class LocalStorageService {
     final prefs = await SharedPreferences.getInstance();
     final notesString = prefs.getString('notes') ?? '[]';
     final notesJson = json.decode(notesString) as List;
-    return notesJson.map((json) => Note.fromJson(json)).toList();
+    return notesJson.map((json) => Note.fromMap(json)).toList();
   }
 
   Future<void> saveNotes(List<Note> notes) async {
     final prefs = await SharedPreferences.getInstance();
-    final notesJson = notes.map((note) => note.toJson()).toList();
+    final notesJson = notes.map((note) => note.toMap()).toList();
     await prefs.setString('notes', json.encode(notesJson));
   }
 }
